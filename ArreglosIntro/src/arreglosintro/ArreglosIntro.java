@@ -71,11 +71,11 @@ public class ArreglosIntro {
         System.out.println(" -------- Usando ArrayList ----------- ");
         ArrayList<Computadora> lista=new ArrayList();
         lista.add(new Computadora("Lenovo", "l2345", 11000.0f));
-        lista.add( new Computadora("Hp", "Pavillion 2020", 15000.0f) );
-        lista.add( new Computadora("Apple", "MacBook Air", 34500.0f));
+        lista.add( new Computadora("Toshiba", "Pavillion 2020", 15000.0f) );
+        lista.add( new Computadora("Samsung", "MacBook Air", 34500.0f));
         
-        for (int i = 0; i < compus.length; i++) {
-            Computadora x = compus[i];
+        for (int i = 0; i < lista.size() ; i++) {
+            Computadora x = lista.get(i);
             System.out.println(x);
         }
         
