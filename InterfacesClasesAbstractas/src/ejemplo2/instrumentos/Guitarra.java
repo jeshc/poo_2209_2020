@@ -10,6 +10,26 @@ package ejemplo2.instrumentos;
  * @author LABCOM2
  */
 public class Guitarra implements Instrumento{
+    private int tipoInstrumento;
+
+    public Guitarra() {
+    }
+
+    public Guitarra(int tipoInstrumento) {
+        this.tipoInstrumento = tipoInstrumento;
+    }
+
+    public int getTipoInstrumento() {
+        return Instrumento.GUITARRA;
+    }
+
+    // este será ignorado
+    public void setTipoInstrumento(int tipoInstrumento) {
+        this.tipoInstrumento = tipoInstrumento;
+    }
+    
+    
+    
     
     @Override
     public boolean afinar(){
@@ -28,11 +48,12 @@ public class Guitarra implements Instrumento{
     }
     
     @Override
-    
     public void limpiar(){
         System.out.println("Limpiando el brazo");
         System.out.println("Limpiando el cuerpo...");
         System.out.println("Limpiando la maquinaroa de la guitarra...");
     }
+    
+ 
     
 }
