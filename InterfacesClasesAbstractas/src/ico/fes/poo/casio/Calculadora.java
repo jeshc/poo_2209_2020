@@ -13,8 +13,10 @@ import ico.fes.poo.math.Aritmetica;
  */
 public class Calculadora implements Aritmetica {
 
-    
-    public float sumar(float a, float b) {
+    public float sumar(float a , float b){
+        return a + b;
+    }
+    public float SUMAR(float a, float b) {
         return a + b;
     }
 
