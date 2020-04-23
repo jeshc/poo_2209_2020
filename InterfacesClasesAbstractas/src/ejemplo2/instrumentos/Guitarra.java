@@ -20,10 +20,10 @@ public class Guitarra implements Instrumento{
     }
 
     public int getTipoInstrumento() {
-        return Instrumento.GUITARRA;
+        return tipoInstrumento;
     }
 
-    // este será ignorado
+    
     public void setTipoInstrumento(int tipoInstrumento) {
         this.tipoInstrumento = tipoInstrumento;
     }
