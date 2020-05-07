@@ -5,6 +5,8 @@
  */
 package ico.fes.poo.clases.abstractas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jeshc
@@ -18,6 +20,6 @@ public class Pruebas {
         System.out.println(g.getAnioConstruccion());
         g.afinar();
         g.tocar();
-        
+        JOptionPane.showMessageDialog(null, "Hola");
     }
 }
