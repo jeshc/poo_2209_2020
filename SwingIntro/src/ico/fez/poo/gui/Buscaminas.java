@@ -23,8 +23,8 @@ import javax.swing.JOptionPane;
  */
 public class Buscaminas extends JFrame {
 
-    public static final int REN = 3;
-    public static final int COL = 3;
+    public static final int REN = 10;
+    public static final int COL = 10;
 
     private ArrayList<BotonBuscaMInas> cuadricula;
 
@@ -43,6 +43,8 @@ public class Buscaminas extends JFrame {
             if(ran < 0.5){
                 cuadricula.get(i).setMina(false);
             }
+            // calcular el número de minas vecinas
+            // para donde no hay minas
         }
         
         
