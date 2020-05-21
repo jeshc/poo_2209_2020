@@ -5,6 +5,7 @@
  */
 package ico.fes.poo.gui;
 
+import ico.fes.poo.model.ModeloCombo;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.HeadlessException;
@@ -12,11 +13,23 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -27,8 +40,11 @@ public class VentanaSwing extends JFrame{
     private JButton boton1;
     private JButton boton2;
     private JButton boton3;
+    private JButton boton4;
+    private JTextArea area;
+    private JButton boton5;
+    private JComboBox combo;
     
-
     public VentanaSwing() throws HeadlessException {
         super("Muestrario de componentes Swing");
         super.setSize(600, 600);
@@ -37,12 +53,67 @@ public class VentanaSwing extends JFrame{
         boton1=new JButton("Show Message");
         boton2=new JButton("Show Input");
         boton3=new JButton("Show Confirm");
+        boton4=new JButton("Abrir archivo");
+        area=new JTextArea(4, 15);
+        boton5=new JButton("Cargar datos");
+        combo = new JComboBox();
         
         etiqueta.setForeground(new Color(255, 0, 255));
         super.getContentPane().add(etiqueta);
         super.getContentPane().add(boton1);
         super.getContentPane().add(boton2);
         super.getContentPane().add(boton3);
+        super.getContentPane().add(boton4);
+        super.getContentPane().add(area);
+        super.getContentPane().add(boton5);
+        super.getContentPane().add(combo);
+        
+        boton5.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                ArrayList<String> frutas=new ArrayList();
+                frutas.add("Piña");
+                frutas.add("Sandia");
+                frutas.add("Naranja");
+                frutas.add("Melón");
+                frutas.add("Kiwi");
+                frutas.add("Aguacate");
+                ModeloCombo model=new ModeloCombo(frutas, "");
+                combo.setModel(model);
+                
+            }
+            
+        });
+        
+        boton4.addMouseListener(new MouseAdapter() {
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JFileChooser jfc=new JFileChooser();
+                jfc.showOpenDialog(null);
+                File arch=jfc.getSelectedFile();
+                System.out.println("Ruta:"+ arch.getAbsolutePath());
+                try {
+                    FileReader fr = new FileReader(arch);
+                    BufferedReader bf= new BufferedReader(fr);
+                    String linea="";
+                    do{
+                        linea=bf.readLine();
+                        if(linea != null)
+                            area.setText(area.getText()+linea+"\n");
+                        
+                    }while( linea != null);
+                    
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch(IOException ioe){
+                    ioe.printStackTrace();
+                }
+                
+            }
+            
+        });
+        
         
         boton3.addMouseListener(new MouseAdapter() {
             @Override
