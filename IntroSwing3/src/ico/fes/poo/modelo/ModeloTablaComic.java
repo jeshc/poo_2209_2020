@@ -91,7 +91,7 @@ public class ModeloTablaComic implements TableModel{
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return false;
+        return true ;
     }
 
     @Override

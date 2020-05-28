@@ -8,6 +8,7 @@ package ico.fes.poo.gui;
 import ico.fes.poo.modelo.Comic;
 import ico.fes.poo.modelo.ModeloTablaComic;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -66,15 +67,20 @@ public class VentanaTabla extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,11 +109,25 @@ public class VentanaTabla extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         ArrayList<Comic> lista=new ArrayList();
-        lista.add(new Comic(2, 1, "Marvel", "Planeta", "Spider-Man", "cazado vol 1", 200.0f));
+        lista.add(new Comic(2, 1, "Marvel", "Planeta", 
+                       "Spider-Man", "cazado vol 1", 200.0f));
+        lista.add(new Comic(22, 2, "DC Comics", "Vid", 
+                       "SuperMan", "Origenes", 250.0f));
+        lista.add(new Comic(42, 1, "Marvel", "Planeta", 
+                       "Wolverine", "Old man Logan", 300.0f));
+        
         ModeloTablaComic modelo= new ModeloTablaComic(lista);
         jTable1.setModel(modelo);
         
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, 
+                "Renglon:"+jTable1.getSelectedRow() +
+                "Columna:" + jTable1.getSelectedColumn()
+                        );
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
