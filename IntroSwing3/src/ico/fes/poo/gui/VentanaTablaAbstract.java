@@ -8,6 +8,7 @@ package ico.fes.poo.gui;
 import ico.fes.poo.modelo.AbstractModeloTablaComic;
 import ico.fes.poo.modelo.Comic;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -259,6 +260,8 @@ public class VentanaTablaAbstract extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         Comic nuevo= new Comic();
+         if(jTextField6.getText().equals("")) JOptionPane.showMessageDialog(this, "El campo precio es obligatorio");
+       
         nuevo.setNumeroComic(Integer.parseInt(jTextField1.getText()));
         nuevo.setEdicion(Integer.parseInt(jTextField2.getText()));
         nuevo.setUniverso(jTextField3.getText());
@@ -266,7 +269,6 @@ public class VentanaTablaAbstract extends javax.swing.JFrame {
         nuevo.setPersonaje(jTextField4.getText());
         nuevo.setTitulo(jTextField5.getText());
         nuevo.setPrecio( Float.parseFloat(jTextField6.getText()) );
-        
         modelo.agregarComic(nuevo);
     }//GEN-LAST:event_jButton2MouseClicked
 
